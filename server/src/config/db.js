@@ -1,11 +1,12 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI, {
+    const conn = await mongoose.connect(process.env.DB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: true,
+      // useFindAndModify: true,
     });
 
     console.log(`MongoDB Connected: ${conn.connection.host}`);
@@ -16,3 +17,11 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+
+// const mongoose = require("mongoose");
+
+// const connect = async () => {
+//   return mongoose.connect(process.env.DB_URI);
+// };
+
+// module.exports = connect;
